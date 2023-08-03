@@ -61,12 +61,11 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     private void doAuthenticate(String email, String password) {
-
+    	System.out.println("doAuthenticate method");
+    	System.out.println("main is: " + email + " and pass is: " + password);
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, password);
         try {
             manager.authenticate(authentication);
-
-
         } catch (BadCredentialsException e) {
             throw new BadCredentialsException(" Invalid Username or Password  !!");
         }
